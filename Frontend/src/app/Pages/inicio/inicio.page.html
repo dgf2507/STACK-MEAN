@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="ion-text-center">
+        <ion-text>
+          <h3>Inicio</h3>
+        </ion-text>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="class">
+    <ion-card class="card">
+      <img alt="Silhouette of mountains"
+        src="https://img.dokumen.tips/doc/1200x630/557aca6fd8b42add288b4831/plan-de-gestion-semertaz.jpg?t=1668895337" />
+      <ion-item *ngIf="authService.getCargo() === ' Coordinador General '">
+        <ion-card-content>
+          <ion-text>
+            <h1> Bienvenido a la aplicación del Servicio Municipal de Estacionamiento Rotativo Tarifado de Azogues
+              (SEMERTAZ) para el mantenimiento de infracciones y mantenimiento del personal.</h1>
+          </ion-text>
+        </ion-card-content>
+      </ion-item>
+      <ion-item *ngIf="authService.getCargo() === ' Secretario '">
+        <ion-card-content>
+          <ion-text>
+            <h1> Bienvenido a la aplicación del Servicio Municipal de Estacionamiento Rotativo Tarifado de Azogues
+              (SEMERTAZ) para
+              el mantenimiento de infracciones.</h1>
+          </ion-text>
+        </ion-card-content>
+      </ion-item>
+      <ion-item *ngIf="authService.getCargo() === ' Controlador de Trafico '">
+        <ion-card-content>
+          <ion-text>
+            <h1> Bienvenido a la aplicación del Servicio Municipal de Estacionamiento Rotativo Tarifado de Azogues
+              (SEMERTAZ) para
+              el registro y consulta de infracciones infracciones vehiculares.</h1>
+          </ion-text>
+        </ion-card-content>
+      </ion-item>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer>
+  <div class="ion-text-center">
+    <ion-note>Todos los derechos reservados - Universidad Católica de Cuenca.</ion-note>
+  </div>
+</ion-footer>

@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <form (ngSubmit)="detallePago(infraccionesform)" ngDefaultControl>
+        <ion-button type="submit">Cerrar</ion-button>
+      </form>
+    </ion-buttons>
+    <ion-title>
+      <div class="ion-text-center">
+        <ion-text>
+          <h3>Realizar Pago</h3>
+        </ion-text>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+
+    <ion-card-content>
+      <ion-card-subtitle class="ion-text-center">
+        <ion-note color="dark">
+          <h3> Infracción a pagar: </h3>
+        </ion-note>
+      </ion-card-subtitle>
+      <form #infraccionesform="ngForm" (ngSubmit)="detallePago(infraccionesform)">
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="infraccionesServices.selectedInfraccion._id">
+
+
+        <input type="hidden" name="PlacaVehicular" #PlacaVehicular="ngModel"
+          [(ngModel)]="infraccionesServices.selectedInfraccion.PlacaVehicular">
+
+        <input type="hidden" name="Sancion" #TipoVehiculo="ngModel"
+          [(ngModel)]="infraccionesServices.selectedInfraccion.Sancion">
+
+        <input type="hidden" name="Marca" #Marca="ngModel" [(ngModel)]="infraccionesServices.selectedInfraccion.Marca">
+
+        <input type="hidden" name="ModeloVehiculo" #ModeloVehiculo="ngModel"
+          [(ngModel)]="infraccionesServices.selectedInfraccion.ModeloVehiculo">
+
+        <input type="hidden" name="TipoVehiculo" #TipoVehiculo="ngModel"
+          [(ngModel)]="infraccionesServices.selectedInfraccion.TipoVehiculo">
+
+
+        <input type="hidden" name="ColorVehiculo" #ColorVehiculo="ngModel"
+          [(ngModel)]="infraccionesServices.selectedInfraccion.ColorVehiculo">
+
+
+        <input type="hidden" name="Pagado" #Pagado="ngModel"
+          [(ngModel)]="infraccionesServices.selectedInfraccion.Pagado">
+
+        <input type="hidden" name="Ruta" #Ruta="ngModel" [(ngModel)]="infraccionesServices.selectedInfraccion.Ruta">
+
+        <input type="hidden" name="createdAt" #createdAt="ngModel"
+          [(ngModel)]="infraccionesServices.selectedInfraccion.createdAt">
+
+        <input type="hidden" name="updatedAt" #updatedAt="ngModel"
+          [(ngModel)]="infraccionesServices.selectedInfraccion.updatedAt">
+
+        <ion-item>
+          <ion-text position="stacked"><b>Placa Vehicular: </b>
+            {{infraccionesServices.selectedInfraccion.PlacaVehicular}}
+          </ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-text position="stacked"> <b>Sanción:</b>
+            {{infraccionesServices.selectedInfraccion.Sancion}}
+          </ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-text position="stacked"><b>Valor a cancelar:</b>
+            {{infraccionesServices.selectedInfraccion.Valor | currency:'USD' }}
+          </ion-text>
+        </ion-item>
+      </form>
+
+
+    </ion-card-content>
+
+    <ion-card-content>
+      <div id="smart-button-container">
+        <div style="text-align: center;">
+          <div id="paypal-button-container">
+          </div>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

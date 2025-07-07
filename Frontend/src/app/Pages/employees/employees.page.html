@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button> </ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="ion-text-center">
+        <ion-text>
+          <h3>Empleados</h3>
+        </ion-text>
+      </div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="modalEmployee()">
+        <ion-icon name="person-add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar showCancelButton="focus" (ionChange)="buscarEmployee($event)" placeholder="Ingrese la cédula">
+  </ion-searchbar>
+</ion-header>
+<ion-content>
+
+  <ion-card class="card">
+
+    <div *ngFor="let employee of employeeService.employees  | filtro: txtBuscar: 'Cedula' ">
+      <ion-card>
+        <ion-item>
+          <ion-label class="ion-text-wrap">
+            <ion-item>
+              <ion-label class="ion-text-wrap">
+                <h2>
+                  <b>Cédula: </b> <br>
+                  {{ employee.Cedula}}
+                </h2>
+              </ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label class="ion-text-wrap">
+                <h2>
+                  <b>Nombres: </b> <br> {{employee.Nombre}}
+                </h2>
+
+              </ion-label>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label class="ion-text-wrap">
+                <h2>
+                  <b>Apelliddos: </b> <br>{{employee.Apellido}}
+                </h2>
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label class="ion-text-wrap">
+                <h2>
+                  <b>Cargo: </b> <br>{{employee.Cargo}}
+                </h2>
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label class="ion-text-wrap">
+                <h2>
+                  <b>Correo electrónico: </b> <br>{{employee.Correo}}
+                </h2>
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label class="ion-text-wrap">
+                <h2>
+                  <b>Dirección: </b> <br> {{employee.Direccion}}
+                </h2>
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label class="ion-text-wrap">
+                <h2>
+                  <b>Contraseña: </b> <br> {{employee.Contrasena}}
+                </h2>
+
+              </ion-label>
+            </ion-item>
+            <ion-item lines="none">
+
+              <ion-label class="ion-text-wrap">
+                <h2>
+                  <b>Teléfono: </b> <br> {{employee.Telefono}}
+                </h2>
+              </ion-label>
+            </ion-item>
+          </ion-label>
+
+          <ion-icon (click)="editEmployee(employee)" (click)="modalEmployee()" name="create-outline"></ion-icon>
+          <ion-icon (click)="deleteEmployee(employee._id, employeeForm)" name="trash-outline"></ion-icon>
+        </ion-item>
+      </ion-card>
+    </div>
+  </ion-card>
+</ion-content>

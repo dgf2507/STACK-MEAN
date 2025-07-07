@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-button (click)="salirModalE()" (click)="resetForm(employeeForm)"
+        defaultHref="menu/employees">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="ion-text-center">
+        <ion-text>
+          <H5>
+            Crear-Editar
+          </H5>
+        </ion-text>
+      </div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <form (ngSubmit)="addEmployee(employeeForm)" ngDefaultControl>
+        <ion-button type="submit" [disabled]="employeeForm.invalid">
+          <ion-button>Guardar</ion-button>
+        </ion-button>
+      </form>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card class="card">
+    <form #employeeForm="ngForm" (ngSubmit)="addEmployee(employeeForm)">
+      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+      <ion-item>
+        <ion-label position="stacked">Cédula:</ion-label>
+        <ion-input name="Cedula" type="text" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.Cedula"
+          required pattern=[0]{1}[0-1-2-3-4-5-6-7-8-9]{9} maxlength="10"
+          placeholder="Ingrese la cédula de identidad."></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Nombres:</ion-label>
+        <ion-input name="Nombre" type="text" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.Nombre"
+          required placeholder="Ingrese los nombres."></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Apellidos:</ion-label>
+        <ion-input name="Apellido" #name="ngModel" type="text" [(ngModel)]="employeeService.selectedEmployee.Apellido"
+          required placeholder="Ingrese los apellidos."></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Dirección:</ion-label>
+        <ion-input name="Direccion" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.Direccion" required
+          placeholder="Ingrese la dirección domiciliaria."></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Correo electrónico:</ion-label>
+        <ion-input name="Correo" #name="ngModel" type="email"
+          pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+          [(ngModel)]="employeeService.selectedEmployee.Correo" required
+          placeholder="Ingrese el correo electrónico."></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" type="password">Contraseña:</ion-label>
+        <ion-input name="Contrasena" #name="ngModel" minlength="8"
+          [(ngModel)]="employeeService.selectedEmployee.Contrasena" required
+          placeholder="Ingrese la contraseña."></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Teléfono:</ion-label>
+        <ion-input name="Telefono" #name="ngModel" type="text" [(ngModel)]="employeeService.selectedEmployee.Telefono"
+          required placeholder="Ingrese el número telefónico." pattern=[0]{1}[0-1-2-3-4-5-6-7-8-9]{9}></ion-input>
+      </ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Seleccione el cargo:</ion-label>
+          <ion-select name="Cargo" placeholder="Cargo" [(ngModel)]="employeeService.selectedEmployee.Cargo"
+            ngDefaultControl required lines="true">
+            <ion-select-option *ngFor="let rol of roles">
+              {{rol.Cargo}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </form>
+  </ion-card>
+</ion-content>

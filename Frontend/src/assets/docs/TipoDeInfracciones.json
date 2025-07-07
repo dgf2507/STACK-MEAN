@@ -1,0 +1,86 @@
+[
+  {
+    "Sancion": "Vehículo sin tarjeta",
+    "Valor": 9
+  },
+  {
+    "Sancion": "Tarjeta no legible",
+    "Valor": 9
+  },
+  {
+    "Sancion": "Tarjeta no vigente",
+    "Valor": 9
+  },
+  {
+    "Sancion": "Mal uso de tarjeta",
+    "Valor": 9
+  },
+  {
+    "Sancion": "Tarjeta alterada",
+    "Valor": 9
+  },
+  {
+    "Sancion": "Tiempo Excedido",
+    "Valor": 9
+  },
+  {
+    "Sancion": "Ventas en la vía pública",
+    "Valor": 9
+  },
+  {
+    "Sancion": "Tiempo excedido con carnet de discapacidad ",
+    "Valor": 9
+  },
+  {
+    "Sancion": "Estacionado fuera del lugar para motos",
+    "Valor": 9
+  },
+  {
+    "Sancion": "Vehículo pesado",
+    "Valor": 18
+  },
+  {
+    "Sancion": "Vehículo en paso cebra",
+    "Valor": 15
+  },
+  {
+    "Sancion": "Vehiculo en linea amarilla",
+    "Valor": 15
+  },
+  {
+    "Sancion": "Vehículo en boca calle",
+    "Valor": 15
+  },
+  {
+    "Sancion": "Vehículo en espacio de discapacitados",
+    "Valor": 15
+  },
+  {
+    "Sancion": "Vehiculo reservado para particulares",
+    "Valor": 15
+  },
+  {
+    "Sancion": "Vehículo en parada de bus ",
+    "Valor": 15
+  },
+  {
+    "Sancion": "Vehículo frente a hidrante ",
+    "Valor": 15
+  },
+  {
+    "Sancion": "Vehículo en entrada a garage",
+    "Valor": 15
+  },
+  {
+    "Sancion": "Vehiculo sobre vereda",
+    "Valor": 15
+  },
+  {
+    "Sancion": "Vehículo doble fila",
+    "Valor": 15
+  },
+  {
+    "Sancion": "Vehículo en espacio de motocicletas",
+    "Valor": 15
+  }
+]

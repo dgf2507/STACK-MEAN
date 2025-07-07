@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="ion-text-center">
+        <ion-text>
+          <h3>Registrar Infracción</h3>
+        </ion-text>
+
+      </div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <form (ngSubmit)="addInfraccion(infraccionesform)" ngDefaultControl>
+        <ion-button type="submit" [disabled]="infraccionesform.invalid">
+          <ion-icon name="save-outline"></ion-icon>
+        </ion-button>
+      </form>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card class="card">
+
+    <form #infraccionesform="ngForm" (ngSubmit)="addInfraccion (infraccionesform)">
+      <ion-card-content class="ion-text-center">
+        <ion-text>Todos los campos son requeridos.</ion-text>
+      </ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">
+          Placa Vehicular:
+        </ion-label>
+        <ion-input name="PlacaVehicular" [(ngModel)]="infraccionesServices.selectedInfraccion.PlacaVehicular"
+          pattern=[a-zA-Z]{3}[-]{1}[0-9]{3,4} maxlength="8" style="text-transform:uppercase;" required
+          placeholder="Ingrese la placa vehicular.">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Seleccciona la Sanción:</ion-label>
+        <ion-select expand='block' cancelText="Cancelar" okText="OK" placeholder="Sanciones."
+          [(ngModel)]="tInfraccionSelected" [ngModelOptions]="
+          {standalone: true}" (ionChange)="setValue()" required multiple="false">
+          <ion-select-option expand='block' *ngFor="let sancion of sanciones" [value]="sancion">
+            {{ sancion.Sancion}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-input type="hidden" name="Sancion" placeholder="Sanción." required [(ngModel)]="sancion">
+      </ion-input>
+      <ion-item>
+        <ion-label position="stacked"> Valor: </ion-label>
+        <ion-input type="number" ngDefaultControl name="Valor" [(ngModel)]="valor" required hidden="true">
+          $
+        </ion-input>
+
+        <ion-input type="number" ngDefaultControl name="Valor" required disabled="true">
+          {{valor | currency }}
+        </ion-input>
+        <ion-input type="text" placeholder="NO" name="Pagado" ngDefaultControl hidden="true" [(ngModel)]="pagado">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Infracción pagada:</ion-label>
+
+        <ion-input type="text" name="Pagado" ngDefaultControl disabled="true">
+          NO
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Seleccione la ruta:</ion-label>
+        <ion-select name="Ruta" [(ngModel)]="infraccionesServices.selectedInfraccion.Ruta" ngDefaultControl required
+          placeholder="Rutas.">
+
+          <ion-select-option *ngFor=" let ruta of Ruta">
+
+            {{ruta.Ruta}}
+
+
+          </ion-select-option>
+
+
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Marca del vehículo:</ion-label>
+        <ion-input placeholder="Ingrese la marca del vehículo." name="Marca" type="text"
+          [(ngModel)]="infraccionesServices.selectedInfraccion.Marca" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Modelo del vehículo:</ion-label>
+        <ion-input placeholder="Ingrese el modelo del vehículo." name="ModeloVehiculo" type="text"
+          [(ngModel)]="infraccionesServices.selectedInfraccion.ModeloVehiculo" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Tipo de vehículo:</ion-label>
+        <ion-input placeholder="Ingrese el tipo de vehículo." name="TipoVehiculo" type="text"
+          [(ngModel)]="infraccionesServices.selectedInfraccion.TipoVehiculo" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Color del vehículo:</ion-label>
+        <ion-input placeholder="Ingrese el color del vehículo." name="ColorVehiculo" type="text"
+          [(ngModel)]="infraccionesServices.selectedInfraccion.ColorVehiculo" required></ion-input>
+      </ion-item>
+
+    </form>
+
+
+
+  </ion-card>
+</ion-content>

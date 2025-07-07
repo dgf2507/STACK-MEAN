@@ -1,0 +1,13 @@
+ion-accordion {
+  margin: 0 auto;
+}
+
+ion-accordion.accordion-expanding,
+ion-accordion.accordion-expanded {
+  width: calc(200% - 32px);
+
+  margin: 16px auto;
+}
+
+
+

@@ -1,0 +1,84 @@
+###
+GET http://localhost:8080/api/v1/empleados
+
+###
+GET http://localhost:4000/api/Users/63c5bbb916f92f168e1e22a1
+
+//EMPLEADOS
+###
+GET http://localhost:4000/api/Employees/63c855a5272549f6f0d6f650
+
+###
+GET http://localhost:4000/api/Infracciones/m
+
+###
+GET http://localhost:4000/api/Infracciones/pago/63ebf947cee09ba65064a302
+
+###
+DELETE  http://localhost:4000/api/Infracciones/63e56ac65b1125a218144dfb
+
+###
+PUT http://localhost:8080/api/v1/empleados/4
+Content-Type: application/json
+
+{
+   
+    "nombre" : "Luis",
+    "apellido": "Bermejo",
+    "email": "a@2507@gmail.com"
+} 
+
+###
+POST http://localhost:8080/api/v1/empleados
+Content-Type: application/json
+
+{
+    "id" : 2,
+    "nombre" : "Gabriel",
+    "apellido": "Fajardo",
+    "email": "dg2507@gmail.com"
+}
+
+//Users.
+
+###
+POST http://localhost:4000/api/Employees/login
+Content-Type: application/json
+
+{
+    "Correo" : "cargo@gmail.com",
+    "Contrasena": "controaldor"
+}
+
+
+
+###
+POST http://localhost:4000/api/Employees/
+Content-Type: application/json
+
+{
+    "Correo" : "marlonbl@gmail.com",
+    "Cedula": "0987654321",
+    "Nombre": "Marlon Bryant", 
+    "Apellido":"Bermejo Lema",
+    "Contrasena" : "12345678",
+    "Direccion" : "Bilian",
+    "Telefono" : "0987783223",
+    "Cargo" : " Coordinador General "
+}
+
+###
+POST http://localhost:4000/api/Infracciones/
+Content-Type: application/json
+
+{
+    "PlacaVehicular" : "ABX-334",
+    "Sancion": "Tarjeta no legible",
+    "Valor": 9, 
+    "Pagado": false,
+    "Marca" : "Chevrolet",
+    "ModeloVehiculo" : "Aveo",
+    "TipoVehiculo" : "Auto",
+    "ColorVehiculo" : " Azul ",
+    "Ruta" : " Ruta 01 "
+}
